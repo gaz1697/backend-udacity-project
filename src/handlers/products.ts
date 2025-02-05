@@ -4,8 +4,8 @@ import { product, productStore } from "../models/products";
 const store = new productStore();
 
 const productRoutes = (app: express.Application) => {
-  app.get("/product/", authenticateToken, index);
-  app.get("/product/:id", authenticateToken, show);
+  app.get("/product/", index);
+  app.get("/product/:id", show);
   app.post("/product", authenticateToken, post);
 };
 
@@ -31,13 +31,13 @@ const show = async (req: Request, res: Response) => {
 
 const post = async (req: Request, res: Response) => {
   try {
-    const user: user = {
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      password: signPassword(req.body.password),
+    const product: product = {
+      p_name: req.body.p_name,
+      price: req.body.price,
+      category: req.body.category,
     };
-    const newUser = await store.create(user);
-    res.json(newUser);
+    const newProduct = await store.create(product);
+    res.json(newProduct);
   } catch (err) {
     res.status(400);
     res.json(err);
