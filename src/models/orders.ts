@@ -38,12 +38,36 @@ export class orderStore {
   async create(order: order): Promise<order> {
     try {
       const conn = await Client.connect();
-      const sql = "INSERT INTO orders (status, user_id) VALUES ($1, $2) RETURNING *";
+      const sql = "INSERT INTO orders (order_status, user_id) VALUES ($1, $2) RETURNING *";
       const results = await conn.query(sql, [order.status, order.user_id]);
       conn.release();
       return results.rows[0];
     } catch (err) {
       throw new Error(`could not create order, ${err} `);
+    }
+  }
+
+  async update(order: order): Promise<order> {
+    try {
+      const conn = await Client.connect();
+      const sql = "UPDATE orders SET order_status= $1, user_id = $2 WHERE id = $3 RETURNING *";
+      const results = await conn.query(sql, [order.status, order.user_id, order.id]);
+      conn.release();
+      return results.rows[0];
+    } catch (err) {
+      throw new Error(`could not update orderr, ${err} `);
+    }
+  }
+
+  async delete(id: string): Promise<order> {
+    try {
+      const conn = await Client.connect();
+      const sql = "DELETE FROM orders WHERE id=($1) RETURNING *";
+      const results = await conn.query(sql, [id]);
+      conn.release();
+      return results.rows[0];
+    } catch (err) {
+      throw new Error(`could not delete order, ${err} `);
     }
   }
 
