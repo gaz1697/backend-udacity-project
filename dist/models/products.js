@@ -42,5 +42,29 @@ class productStore {
             throw new Error(`could not create product, ${err} `);
         }
     }
+    async update(product) {
+        try {
+            const conn = await database_1.default.connect();
+            const sql = "UPDATE products SET p_name = $1, price = $2, category = $3 WHERE id = $4 RETURNING *";
+            const results = await conn.query(sql, [product.p_name, product.price, product.category, product.id]);
+            conn.release();
+            return results.rows[0];
+        }
+        catch (err) {
+            throw new Error(`could not update products, ${err} `);
+        }
+    }
+    async delete(id) {
+        try {
+            const conn = await database_1.default.connect();
+            const sql = "DELETE FROM products WHERE id=($1) RETURNING *";
+            const results = await conn.query(sql, [id]);
+            conn.release();
+            return results.rows[0];
+        }
+        catch (err) {
+            throw new Error(`could not delete product, ${err} `);
+        }
+    }
 }
 exports.productStore = productStore;

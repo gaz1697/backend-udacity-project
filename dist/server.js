@@ -12,7 +12,7 @@ const app = (0, express_1.default)();
 const address = "0.0.0.0:3000";
 app.use(body_parser_1.default.json());
 app.get("/", function (req, res) {
-    res.send("Hello World!");
+    res.send("store backend api");
 });
 (0, users_1.default)(app);
 (0, orders_1.default)(app);
@@ -20,3 +20,4 @@ app.get("/", function (req, res) {
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`);
 });
+exports.default = app;
