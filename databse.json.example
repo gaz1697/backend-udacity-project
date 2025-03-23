@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "psqlexpressapi",
+    "user": "username",
+    "password": "password"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "psqlexpressapi_test",
+    "user": "username",
+    "password": "password"
+  }
+}

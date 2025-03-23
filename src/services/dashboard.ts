@@ -7,11 +7,11 @@ export type order = {
 };
 
 export class orderDashboard {
-  async index(): Promise<order[]> {
+  async index(user_id: number): Promise<order[]> {
     try {
       const conn = await Client.connect();
       const sql = "SELECT * FROM orders WHERE user_id=($1) AND order_status='active'";
-      const results = await conn.query(sql);
+      const results = await conn.query(sql, [user_id]);
       conn.release();
       return results.rows;
     } catch (err) {

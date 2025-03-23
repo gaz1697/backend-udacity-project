@@ -2,7 +2,7 @@ import Client from "../database";
 
 export type order = {
   id?: Number;
-  status: string;
+  order_status: string;
   user_id: Number;
 };
 
@@ -39,7 +39,7 @@ export class orderStore {
     try {
       const conn = await Client.connect();
       const sql = "INSERT INTO orders (order_status, user_id) VALUES ($1, $2) RETURNING *";
-      const results = await conn.query(sql, [order.status, order.user_id]);
+      const results = await conn.query(sql, [order.order_status, order.user_id]);
       conn.release();
       return results.rows[0];
     } catch (err) {
@@ -51,7 +51,7 @@ export class orderStore {
     try {
       const conn = await Client.connect();
       const sql = "UPDATE orders SET order_status= $1, user_id = $2 WHERE id = $3 RETURNING *";
-      const results = await conn.query(sql, [order.status, order.user_id, order.id]);
+      const results = await conn.query(sql, [order.order_status, order.user_id, order.id]);
       conn.release();
       return results.rows[0];
     } catch (err) {

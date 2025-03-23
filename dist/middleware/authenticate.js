@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authenticateToken = void 0;
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const dotenv_1 = __importDefault(require("dotenv"));
+var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const authenticateToken = (req, res, next) => {
+var authenticateToken = function (req, res, next) {
     // this function verifies that the token has been produced by the backend
     try {
-        const authHeader = req.headers.authorization;
-        const token = authHeader.split(" ")[1];
+        var authHeader = req.headers.authorization;
+        var token = authHeader.split(" ")[1];
         jsonwebtoken_1.default.verify(token, process.env.BCRYPT_PASSWORD);
         next();
     }

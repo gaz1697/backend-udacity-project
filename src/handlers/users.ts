@@ -63,7 +63,7 @@ const authenticate = async (req: Request, res: Response) => {
       const token = jwt.sign(user, process.env.BCRYPT_PASSWORD as string);
       res.json(token);
     } else {
-      res.json("the provided id or password is invalid");
+      res.json(`the provided id or password is invalid ${user.id} and ${user.password}`);
     }
   } catch (err) {
     res.status(401);

@@ -1,3 +1,4 @@
+dist
 .env
 database.json
 node_modules
