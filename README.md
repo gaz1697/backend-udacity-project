@@ -4,9 +4,11 @@
 
 This repo contains a udacity course storefront backend project, the backend is used to store the storefront data and to receive requests regarding the data through exposed endpoints.
 
+---
+
 ## Technologies
 
-the backend employs the following technologies:
+The backend employs the following technologies:
 
 - Postgres for the database
 - Node/Express for the application logic
@@ -14,6 +16,30 @@ the backend employs the following technologies:
 - db-migrate from npm for migrations
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
+
+---
+
+### Instructions for Setting up and Running the Backend
+
+**Prerequisites**
+
+- Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
+
+**Setup**
+
+1. Download or clone the project repository.
+2. Open the project folder in your terminal.
+3. Run `npm install` to install all required dependencies.
+
+**Starting the Project**
+
+- From the project folder, run `npm start` to launch the backend server.
+
+**Testing the Project**
+
+- From the project folder, run `npm test` to execute the test suite.
+
+---
 
 ## Database Tables
 
@@ -25,6 +51,8 @@ the backend employs the following technologies:
 
 - Table: order_products (order_id: foreign key references orders:id, product_id:foreign key references products:id, quantity: int)
 
+---
+
 ## Endpoints
 
 ### Main Page
@@ -33,6 +61,8 @@ the backend employs the following technologies:
 
 - **Returns**: The main application page.
 - **Purpose**: Serves as the home page for the application.
+
+---
 
 ### users
 
@@ -169,23 +199,3 @@ the backend employs the following technologies:
 - **Purpose**:  
   Add a product to an existing order.
 - **Token Required**
-
-### Instructions for Setting up and Running the Backend
-
-**Prerequisites**
-
-- Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
-
-**Setup**
-
-1. Download or clone the project repository.
-2. Open the project folder in your terminal.
-3. Run `npm install` to install all required dependencies.
-
-**Starting the Project**
-
-- From the project folder, run `npm start` to launch the backend server.
-
-**Testing the Project**
-
-- From the project folder, run `npm test` to execute the test suite.
