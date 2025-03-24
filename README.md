@@ -54,10 +54,10 @@ The backend employs the following technologies:
 ### Enviroment Variables
 
 
-- **ServerPortNumber** PORT=3000
-- **DB Host** POSTGRES_HOST=127.0.0.1
-- **DB Name** POSTGRES_DB=psqlexpressapi
-- **DB User** POSTGRES_USER=username
-- **DB Password** POSTGRES_PASSWORD=Password
-- **Bcrypt password** BCRYPT_PASSWORD=dofpjdr4nf4o32p4ifjkj4223frkvmkv59$
-- **SALT** SALT_ROUNDS=10
+-  PORT=3000
+-  POSTGRES_HOST=127.0.0.1
+-  POSTGRES_DB=psqlexpressapi
+-  POSTGRES_USER=username
+-  POSTGRES_PASSWORD=Password
+-  BCRYPT_PASSWORD=dofpjdr4nf4o32p4ifjkj4223frkvmkv59$
+-  SALT_ROUNDS=10
