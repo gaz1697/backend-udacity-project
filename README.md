@@ -39,8 +39,8 @@ The backend employs the following technologies:
 
 **setting up enviroment variables**
 
--- create a file named .env and copy the provided information in the enviroment variables section of this document into it
--- adjust the POSTGRES_USER and POSTGRES_PASSWORD with your relevant information
+- create a file named .env and copy the provided information in the enviroment variables section of this document into it
+- adjust the POSTGRES_USER and POSTGRES_PASSWORD with your relevant information
 
 **Starting the Project**
 
