@@ -8,9 +8,9 @@ const store = new orderStore();
 const orderDash = new orderDashboard();
 
 const orderRoutes = (app: express.Application) => {
-  app.get("/order/", index);
+  app.get("/order/", authenticateToken, index);
   app.get("/order/:id", authenticateToken, show);
-  app.get("/order/active/:id", get_active_orders);
+  app.get("/order/active/:id", authenticateToken, get_active_orders);
   app.post("/order", authenticateToken, post);
   app.post("/order_product", authenticateToken, post_order_product);
 };

@@ -10,7 +10,7 @@ dotenv.config();
 const store = new userStore();
 
 const userRoutes = (app: express.Application) => {
-  app.get("/user/", index);
+  app.get("/user/", authenticateToken, index);
   app.get("/user/:id", authenticateToken, show);
   app.post("/user", post);
   app.post("/user/login", authenticate);
