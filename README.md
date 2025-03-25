@@ -36,6 +36,7 @@ The backend employs the following technologies:
 - start psql 
 - create a database with the name psqlexpressapi and a database with the name psqlexpressapi_test
 - create a file with the name database.json and copy the content of the database.json.example into it and adjust the information as relevant to your enviroment
+- run 'npm run init' command to build the database tables 
 
 **setting up enviroment variables**
 
